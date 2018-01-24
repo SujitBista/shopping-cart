@@ -3,10 +3,10 @@
 @section('title')
   Laravel Shop Cart
 @endsection
-
-@section('content')
+ @section('content')
   @foreach($products->chunk(3) as $productchunk)
-         <div class="row">
+
+        <div class="row">
      	@foreach($productchunk as $product)
      	    <div class="col-sm-6 col-md-4">
 			    <div class="card">
@@ -18,9 +18,8 @@
 			        <a href="#" class="btn btn-success pull-right">Add to Cart</a>
 			      </div>
 			    </div>
-	  		</div>
+			  </div>
      	@endforeach
-	 	 
+     	</div>
   @endforeach
- 
-@endsection
+ @endsection

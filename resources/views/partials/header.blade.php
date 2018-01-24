@@ -17,10 +17,11 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user" aria-hidden="true"></i>  User Account
+            <i class="fa fa-user" aria-hidden="true"></i>  User Management
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Log In</a>
+            <a class="dropdown-item" href="{{ route('user.signup') }}">Signup</a>
+            <a class="dropdown-item" href="#">Signin</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Log Out</a>
           </div>
