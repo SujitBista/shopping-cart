@@ -17,13 +17,28 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user" aria-hidden="true"></i>  User Management
+            <i class="fa fa-user" aria-hidden="true"></i>
+             @if(Auth::check()) 
+               {{ Auth::user()->email }}
+             @else
+               User Management
+             @endif 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('user.signup') }}">Signup</a>
-            <a class="dropdown-item" href="#">Signin</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Log Out</a>
+            @if(Auth::check())
+               <a class="dropdown-item" href="{{ route('user.profile') }}">User Profile</a>
+                 <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="{{ route('user.signout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+            @else
+               <a class="dropdown-item" href="{{ route('user.signup') }}">Signup</a>
+               <a class="dropdown-item" href="{{ route('user.signin') }}">Signin</a>
+            @endif
+          
+                <form id="logout-form" action="{{ route('user.signout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
           </div>
         </li>
       </ul>

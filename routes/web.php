@@ -13,4 +13,14 @@
 
 Route::get('/', 'ProductController@getIndex')->name('product.index');
 Route::get('/signup','UserController@getIndex');
-Route::post('/signup','UserController@postSignup')->name('user.signup');
+Route::post('/signup','UserController@postSignUp')->name('user.signup');
+
+Route::get('/signin','UserController@getSignIn');
+Route::post('/signin','UserController@postSignIn')->name('user.signin');
+
+Route::get('/profile','UserController@getProfile')->name('user.profile');
+
+//Route::get('user/login', 'UserController@getLogIn')->name('user.login');
+Route::get('user/logout', 'UserController@getLogout');
+
+Route::post('user/logout', 'UserController@getLogout')->name('user.signout');
