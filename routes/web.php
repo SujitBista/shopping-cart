@@ -12,15 +12,18 @@
 */
 
 Route::get('/', 'ProductController@getIndex')->name('product.index');
-Route::get('/signup','UserController@getIndex');
-Route::post('/signup','UserController@postSignUp')->name('user.signup');
+Route::get('user/signup','UserController@getIndex');
+Route::post('user/signup','UserController@postSignUp')->name('user.signup');
 
-Route::get('/signin','UserController@getSignIn');
-Route::post('/signin','UserController@postSignIn')->name('user.signin');
+Route::get('user/signin','UserController@getSignIn');
+Route::post('user/signin','UserController@postSignIn')->name('user.signin');
 
-Route::get('/profile','UserController@getProfile')->name('user.profile');
+Route::get('user/profile','UserController@getProfile')->name('user.profile')->middleware('auth');
 
 //Route::get('user/login', 'UserController@getLogIn')->name('user.login');
 Route::get('user/logout', 'UserController@getLogout');
 
-Route::post('user/logout', 'UserController@getLogout')->name('user.signout');
+Route::post('user/logout', 'UserController@getLogout')->name('user.signout')->middleware('auth');
+
+
+

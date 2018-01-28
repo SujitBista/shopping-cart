@@ -8,9 +8,6 @@ use Auth;
 class UserController extends Controller
 {
 
-    // public function __construct(){
-    //     $this->middleware('auth',['except' => 'getindex','getSignIn']);
-    // }
     public function getindex(){
     	return view('user.signup');
     }
@@ -54,6 +51,6 @@ class UserController extends Controller
 
    public function getLogout(Request $request){
         Auth::logout();
-        return redirect('/signin');
+        return redirect()->route('user.signin');
     }   
 }
